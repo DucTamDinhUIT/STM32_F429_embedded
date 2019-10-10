@@ -10,6 +10,6 @@ public class Bai1 {
      int a=rd.nextInt(26)+25;
      System.out.println("ngau nhien from 25 to 50 là "+" "+a);
      int b=rd.nextInt((26)+(-10));
-     System.out.println("Random from -10 to 15 là :"+" " +b);
+     System.out.println("Ngau nhien from -10 to 15 là :"+" " +b);
     }
 }
