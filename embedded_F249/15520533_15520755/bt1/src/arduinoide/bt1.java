@@ -14,6 +14,38 @@ public class bt1 extends Frame implements ActionListener{
     TextArea area;  
     Button b1,b2;
     bt1(){  
+        //ađ panel
+         Panel panel = new Panel();
+         panel.setBounds(40, 80, 200, 200);
+         panel.setBackground(Color.gray);
+         /*Button button1 = new Button("Button 1");
+         button1.setBounds(50, 100, 80, 30);
+         button1.setBackground(Color.yellow);
+         Button button2 = new Button("Button 2");
+         button2.setBounds(100, 100, 80, 30);
+         button2.setBackground(Color.green);*/
+       
+         MenuBar mb=new MenuBar();  
+         Menu menu=new Menu("Menu");  
+         Menu submenu=new Menu("Sub Menu");  
+         MenuItem i1=new MenuItem("Item 1");  
+         MenuItem i2=new MenuItem("Item 2");  
+         MenuItem i3=new MenuItem("Item 3");  
+         MenuItem i4=new MenuItem("Item 4");  
+         MenuItem i5=new MenuItem("Item 5");  
+         menu.add(i1);  
+         menu.add(i2);  
+         menu.add(i3);  
+         submenu.add(i4);  
+         submenu.add(i5);  
+         menu.add(submenu);  
+         mb.add(menu);
+
+         panel.add(panel);
+         panel.setSize(400, 400);
+         panel.setLayout(null);
+         panel.setVisible(true);
+
         //create components
         
         tf=new TextField();  
@@ -24,8 +56,6 @@ public class bt1 extends Frame implements ActionListener{
         b1.addActionListener(this);//passing current instance  
         //add components and set size, layout and visibility  
         add(b1);add(tf);
-                //Setting the title of Frame
-
         //Made by Nghi : Enable input area
             l1=new Label();  
             l1.setBounds(70,50,600,400);  
