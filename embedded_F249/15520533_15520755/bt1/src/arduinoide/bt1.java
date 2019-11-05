@@ -13,7 +13,7 @@ import java.awt.event.*;
 public class bt1 implements ActionListener{
     bt1() {
         Frame f = new Frame();
-        f.setTitle("15520755 - 15520533 | Arduin IDE");
+        f.setTitle("15520755 - 15520533 | Arduino IDE");
         f.setBackground(Color.gray);
         
         Button verify = new Button("Verify");
@@ -149,8 +149,8 @@ public class bt1 implements ActionListener{
         help.add(h8);
         help.add(h9);
         
-        mb.add(edit);
         mb.add(file);
+        mb.add(edit);
         mb.add(sketch);
         mb.add(tools);
         mb.add(help);
@@ -168,18 +168,20 @@ public class bt1 implements ActionListener{
         Panel panel = new Panel();
         panel.setBounds(00, 80, 500, 400);
         panel.setBackground(Color.white);
-        f.add(panel);
-
+        
         //add text area
         TextArea area = new TextArea("Author\n" +
                                      "15520755 - Dinh Duc Tam\n" +
-                                     "115520533 - Tran Quang Nghi\n" +
+                                     "15520533 - Tran Quang Nghi\n" +
                                      "Sources tham khao: javatpoint(dot)com\n" +
                                      "viettuts(dot)vn/java-awt");
+        Scrollbar scroll = new Scrollbar();
+        scroll.setBounds(575, 00, 15, 400);
         area.setBounds(00, 100, 400, 300);
         area.setBackground(Color.CYAN);
+        panel.add(scroll);
         panel.add(area);
-
+        f.add(panel);
         
         //closing
         f.addWindowListener(new WindowAdapter() {
