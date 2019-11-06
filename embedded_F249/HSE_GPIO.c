@@ -19,10 +19,10 @@
 
 #define	RCC_CR					(*(uint32_t*)0x40023800u)
 #define	RCC_PLLCFGR				(*(uint32_t*)0x40023804u) 	//0x04 
-#define	RCC_CFGR					(*(uint32_t*)0x40023808u)		//0x08
-#define RCC_AHB1ENR					(*(uint32_t*)0x40023830u)		
-#define RCC_AHB1RSTR					(*(uint32_t*)0x40023810u)		//0x10
-#define RCC_CIR						(*(uint32_t*)0x40023810u)
+#define	RCC_CFGR				(*(uint32_t*)0x40023808u)		//0x08
+#define RCC_AHB1ENR				(*(uint32_t*)0x40023830u)		
+#define RCC_AHB1RSTR				(*(uint32_t*)0x40023810u)		//0x10
+#define RCC_CIR					(*(uint32_t*)0x40023810u)
 
 #define GPIOG_MODER				(*(uint32_t*)0x40021800u)
 #define GPIOG_OTYPER				(*(uint32_t*)0x40021804u)
@@ -44,7 +44,7 @@ void RCC_PLL_ENABLE()
 	{	
 		RCC_CR				= 0x02000083u;		//enable PLL clock
 		RCC_PLLCFGR			= 0x24003002u; 		//PPL clock config
-		RCC_CFGR				= 0xC060000Au;		//Config
+		RCC_CFGR			= 0xC060000Au;		//Config
 		RCC_AHB1ENR			= 0x01000041u;		//Enable AHB1 GPIOG + GPIOA
 		RCC_AHB1RSTR			= 0x00000000u;
 	}
@@ -53,7 +53,7 @@ void RCC_HSE_ENABLE()
 	{	
 		RCC_CR				= 0x00010083u;		//enable PLL clock
 	//RCC_PLLCFGR				= 0x24003002u; 		//PPL clock config
-		RCC_CFGR				= 0xC01000F1u;		//Config
+		RCC_CFGR			= 0xC01000F1u;		//Config
 		RCC_AHB1ENR			= 0x01000041u;		//Enable AHB1 GPIOG + GPIOA
 		RCC_AHB1RSTR			= 0x00000000u;
 		RCC_CIR				= 0x00000000u;		//RCC clock interrupt register
@@ -75,11 +75,11 @@ void GPIOA()
 	}
 void LED_on()
 	{
-		GPIOG_ODR 				= 0x00006000;					//ON 13+14 output data 
+		GPIOG_ODR 			= 0x00006000;					//ON 13+14 output data 
 	}
 void LED_off()
 	{
-		GPIOG_ODR 				= 0x00000000;					//ON 13 output data 
+		GPIOG_ODR 			= 0x00000000;					//ON 13 output data 
 	}
 
 void ToggleLed()
