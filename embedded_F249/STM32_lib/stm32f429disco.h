@@ -67,7 +67,7 @@ typedef struct
   uint32_t DCKCFGR;       /*!< RCC Dedicated Clocks configuration register,                 Address offset: 0x8C */
 } RCC_TypeDef;
 
-//#define	RCC_BASE					(*((volatile uint32_t*)0x40023800u))
+
 //#define	RCC_CR						(*((volatile uint32_t*)0x40023800u))
 //#define	RCC_PLLCFGR				(*((volatile uint32_t*)0x40023804u))		//0x04 
 //#define	RCC_CFGR					(*((volatile uint32_t*)0x40023808u))		//0x08
@@ -100,6 +100,6 @@ volatile GPIO_TypeDef* const PORTI		=	(GPIO_TypeDef*)0x40022000;
 volatile GPIO_TypeDef* const PORTJ		=	(GPIO_TypeDef*)0x40022400;
 volatile GPIO_TypeDef* const PORTK		=	(GPIO_TypeDef*)0x40022800;
 
-volatile RCC_TypeDef* const RCC		=	(RCC_TypeDef*)0x40023800;
+volatile RCC_TypeDef*  const RCC		=	(RCC_TypeDef*)0x40023800;
 
 #endif
