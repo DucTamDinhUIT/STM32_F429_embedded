@@ -102,4 +102,35 @@ volatile GPIO_TypeDef* const PORTK		=	(GPIO_TypeDef*)0x40022800;
 
 volatile RCC_TypeDef*  const RCC		=	(RCC_TypeDef*)0x40023800;
 
+
+int DELAY(int a)
+	{
+		for(int i = 0; i < a; i++){};				//Burn some time
+		return (0);
+	}
+void RCC_PLL_ENABLE()
+	{	
+		RCC->CR					= 0x02000083u;			//enable PLL clock
+		RCC->PLLCFGR		= 0x24003002u; 			//PPL clock config
+		RCC->CFGR				= 0xC060000Au;			//Config
+		RCC->AHB1ENR		= 0x01000000u;			//reset AHB1 GPIOG + GPIOA 
+		RCC->AHB1RSTR		= 0x00000000u;
+	}
+	
+void GPIO_Init()
+	{
+		RCC->AHB1ENR |= (1 << 6);						//GPIOG enable
+		RCC->AHB1ENR |= (1 << 0);						//GPIOA enable
+		PORTG->MODER |= (1 << 26);					//PORT13 pin26,27 output
+		PORTG->MODER &= ~(1 << 27);					//pin13 = "01" => bit [26;27] = 01 
+		PORTG->MODER |= (1 << 28);					//PORT13 pin28,29 output
+		PORTG->MODER &= ~(1 << 29);					//pin14 = "01" => bit [28;29] = 01
+		PORTA->MODER &= ~(1 << 0);					//pinPA0 mode input
+		PORTG->OTYPER			= 0x10000000u;		//PG13 push pull
+		PORTG->OSPEEDR		= 0x14000000u;	  //Output speed
+		PORTG->PUPDR			= 0x28000000u;		//pull down
+		PORTA->PUPDR			= 0x64000002u;		//pull up
+		
+	}
+
 #endif
